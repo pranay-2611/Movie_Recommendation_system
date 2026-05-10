@@ -1,15 +1,16 @@
 import streamlit as st
 import pandas as pd
 import ast
+import zipfile
 
 from model import recommend_movies, movie_list
 
 # ---------------------------------------------------
 # LOAD DATA
 # ---------------------------------------------------
-
-movies_data = pd.read_csv("Dataset/tmdb_5000_movies.csv")
-credits_data = pd.read_csv("Dataset/tmdb_5000_credits.csv")
+with zipfile.Zipfile("Dataset.zip") as z:
+    movies_data = pd.read_csv(z.open("Dataset/tmdb_5000_movies.csv"))
+    credits_data = pd.read_csv(z.open("Dataset/tmdb_5000_credits.csv"))
 
 movies_data = movies_data.merge(credits_data, on="title")
 
