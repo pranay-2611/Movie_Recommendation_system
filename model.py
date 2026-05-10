@@ -8,8 +8,8 @@ import zipfile
 # LOAD DATASETS
 # ---------------------------------------------------
 with zipfile.ZipFile("dataset.zip") as z:
-    movies = pd.read_csv(z.open("tmdb_5000_movies.csv"))
-    credits = pd.read_csv(z.open("tmdb_5000_credits.csv"))
+    movies = pd.read_csv(z.open("dataset/tmdb_5000_movies.csv"))
+    credits = pd.read_csv(z.open("dataset/tmdb_5000_credits.csv"))
 
 # ---------------------------------------------------
 # MERGE DATASETS
