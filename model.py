@@ -2,13 +2,14 @@ import pandas as pd
 import ast
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import zipfile
 
 # ---------------------------------------------------
 # LOAD DATASETS
 # ---------------------------------------------------
-
-movies = pd.read_csv("Dataset/tmdb_5000_movies.csv")
-credits = pd.read_csv("Dataset/tmdb_5000_credits.csv")
+with zipfile.ZipFile("Dataset.zip") as z:
+    movies = pd.read_csv(z.open("tmdb_5000_movies.csv"))
+    credits = pd.read_csv(z.open("tmdb_5000_credits.csv"))
 
 # ---------------------------------------------------
 # MERGE DATASETS
