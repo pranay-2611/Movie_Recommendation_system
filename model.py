@@ -7,7 +7,7 @@ import zipfile
 # ---------------------------------------------------
 # LOAD DATASETS
 # ---------------------------------------------------
-with zipfile.ZipFile("Dataset.zip") as z:
+with zipfile.ZipFile("dataset.zip") as z:
     movies = pd.read_csv(z.open("tmdb_5000_movies.csv"))
     credits = pd.read_csv(z.open("tmdb_5000_credits.csv"))
 
